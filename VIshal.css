@@ -1,0 +1,113 @@
+
+body {
+    background-color:hotpink;
+}
+
+header {
+    background-color:pink;
+    color:crimson;
+    text-align: center;
+    padding: 5px;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 25px;
+    
+
+}
+
+nav {
+    background-color: #333;
+    color:blue;
+    padding: 10px;
+    text-align: center;
+}
+
+.love-story {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.love-story img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.love-story h3 {
+    color: #e74c3c;
+}
+
+.love-story p {
+    color: #555;
+}
+
+.love-story .heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #e74c3c;
+}
+
+.love-story:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(76, 128, 206, 0.799);
+}
+
+.button{
+    cursor:pointer;
+    background-color:cyan;
+    color:black;
+    float:calc();
+    padding: 10px;
+    border-radius: 10px;
+    font-family:monospace;
+    font-style:italic;
+    
+}
+
+button:active{
+    color: rgb(244, 18, 18);
+}
+button:hover{
+    color: rgb(240, 0, 0);
+}
+.label{
+    font-family: cursive;
+}
+.labels{
+    font-family:cursive;
+}
+.pl{
+    font-family:Arial, Helvetica, sans-serif;
+}
+header{
+    text-decoration:none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.modal{
+    background-color:rgb(206, 97, 97);
+    color:rgb(1, 1, 1);
+}
+.h{
+    font-style: normal;
+    font-family:monospace;
+}
+*{
+    margin: 0;
+}
+.ll{
+    overflow: hidden;
+    font-style:oblique;
+}
+.maa{
+    font-size:large ;
+}
