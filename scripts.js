@@ -4,6 +4,42 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('modal');
     const modalContent = document.getElementById('modal-content');
 
+    // Retrieve stored love stories from local storage
+    const storedLoveStories = JSON.parse(localStorage.getItem('loveStories')) || [];
+
+    // Function to display love stories
+    function displayLoveStories() {
+        loveStoriesSection.innerHTML = '';
+        storedLoveStories.forEach(function (loveStory) {
+            const storyElement = createLoveStoryElement(loveStory);
+            loveStoriesSection.appendChild(storyElement);
+        });
+    }
+
+    // Function to create a love story element
+    function createLoveStoryElement(loveStory) {
+        const storyElement = document.createElement('div');
+        storyElement.className = 'love-story';
+        storyElement.innerHTML = `
+            <h3>${loveStory.name}</h3>
+            <p>${loveStory.story.substring(0, 100)}...</p>
+        `;
+
+        // Add click event to show the full story in modal
+        storyElement.addEventListener('click', function () {
+            modalContent.innerHTML = `
+                <h3>${loveStory.name}</h3>
+                <p>${loveStory.story}</p>
+            `;
+            modal.style.display = 'flex';
+        });
+
+        return storyElement;
+    }
+
+    // Display love stories on page load
+    displayLoveStories();
+
     loveForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -11,25 +47,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const name = document.getElementById('name').value;
         const story = document.getElementById('story').value;
 
-        // Create a new love story element
-        const storyElement = document.createElement('div');
-        storyElement.className = 'love-story';
-        storyElement.innerHTML = `
-            <h3>${name}</h3>
-            <p>${story.substring(0, 100)}...</p>
-        `;
+        // Create a new love story object
+        const loveStory = {
+            name: name,
+            story: story
+        };
 
-        // Add click event to show the full story in modal
-        storyElement.addEventListener('click', function () {
-            modalContent.innerHTML = `
-                <h3>${name}</h3>
-                <p>${story}</p>
-            `;
-            modal.style.display = 'flex';
-        });
+        // Add the new love story to the stored array
+        storedLoveStories.push(loveStory);
 
-        // Append the new love story to the Love Stories section
-        loveStoriesSection.appendChild(storyElement);
+        // Save the updated love stories to local storage
+        localStorage.setItem('loveStories', JSON.stringify(storedLoveStories));
+
+        // Display the love stories on the page
+        displayLoveStories();
 
         // Clear the form
         loveForm.reset();
